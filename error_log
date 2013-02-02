@@ -1,0 +1,2 @@
+[05-Dec-2011 10:16:36] PHP Fatal error:  Call to undefined function  get_header() in /home/vampaor1/public_html/portfolio/wp-content/themes/alexstomp/index.php on line 1
+[05-Dec-2011 10:16:51] PHP Fatal error:  Call to undefined function  get_header() in /home/vampaor1/public_html/portfolio/wp-content/themes/alexstomp/index.php on line 1
