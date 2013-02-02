@@ -1,48 +1,27 @@
 <?php get_header(); ?>
-	
-	<div id="wrap-content">
-	
-		<a id="logo" href="<?php bloginfo('url');?>">
-			<img src="<?php bloginfo('template_directory')?>/img/logo.png"/>
-		</a>
-		
-		<div id="wrapper">
-		    
-		    <ul id="post-list">
-		    
-		 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
-		 		$thumb =  get_post_meta($post->ID, 'thumbnail', true);?>
-		    	
-		    	<li class="post">
-		    		<?php if($thumb !== "") { ?>
-		    			<a class="thumbnail" href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>">
-		    				<img src="<?=$thumb; ?>" alt="<?php the_title(); ?>" width="200px" height="200px"/>
-		    			</a>
-		    		
-		    			<div class="content" style="width: 500px;">
-		    		<?php } else { ?>
-		    			<div class="content" style="width: 750px;">
-		    		<?php } ?>  			
-		    				
-		    			<h2 class="title">
-		    				<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>" style="width: 500px;"><?php the_title(); ?></a>
-		    			</h2>
-		    		
-		    			<p class="date">Posted on <?php the_date(); ?></p>
-		    			
-		    			<?php the_excerpt(); ?>
-		    				
-		    		</div>
-		    	</li>
-		    	
-		    <?php endwhile; endif; ?>
-		    
-		    </ul>
-		    
-		</div>
-		
-	</div>
 
-<?php get_sidebar(); ?>
+<div id="sidebar-wrap">
+	<a class="active">GRAPHIC WORK</a>
+	<a href="<?= home_url(); ?>/category/print" class="graphic-sublink">Print</a>
+	<a href="<?= home_url(); ?>/category/screen" class="graphic-sublink">Screen</a>
+	<a href="<?= home_url(); ?>/category/logo" class="graphic-sublink">Logo</a>
+	<a href="<?= home_url(); ?>/category/drawings">DRAWING WORK</a>
+</div>
+
+<div id="single-wrap">
+
+	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		
+		<h2 class="single-title"><?= the_title(); ?></h2>
+		
+		<?= the_content(); ?>
+
+		<div id="excerpt-wrap">
+			<?= the_excerpt(); ?>
+		</div>
+
+	<?php endwhile; endif; ?>
+
+</div>
 
 <?php get_footer(); ?>
